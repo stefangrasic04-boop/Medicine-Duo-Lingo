@@ -29,6 +29,13 @@ window.MEDIQ_DATA = {
       "Zdravstveni sistem, informacije in nujna stanja."
     ],
     [
+      "wellbeing",
+      "Dobro počutje",
+      "heart",
+      "pink",
+      "Spanje, duševno in reproduktivno zdravje."
+    ],
+    [
       "deep",
       "Razumi medicino",
       "brain",
@@ -681,6 +688,326 @@ window.MEDIQ_DATA = {
           "Čas do vsakega neželenega učinka",
           "Čas, da se zdravilo vedno popolnoma izloči",
           "Razpolovni čas pomaga razumeti upad koncentracije."
+        ]
+      ]
+    ],
+    [
+      "digestion",
+      "body",
+      1,
+      "Prebava in hranila",
+      "Prebavila mehansko in kemično razgrajujejo hrano. Večina absorpcije hranil poteka v tankem črevesu. Jetra tvorijo žolč, trebušna slinavka pa med drugim prebavne encime.",
+      "MedlinePlus",
+      "https://medlineplus.gov/healthtopics.html",
+      [
+        [
+          "Kje se absorbira večina hranil?",
+          "V tankem črevesu",
+          "V požiralniku",
+          "V ustih",
+          "Velika površina tankega črevesa omogoča absorpcijo."
+        ],
+        [
+          "Kateri organ tvori žolč?",
+          "Jetra",
+          "Žolčnik",
+          "Vranica",
+          "Žolč nastaja v jetrih; žolčnik ga shranjuje in koncentrira."
+        ],
+        [
+          "Kaj je ena glavnih nalog debelega črevesa?",
+          "Absorpcija vode in elektrolitov",
+          "Tvorba inzulina",
+          "Črpanje krvi",
+          "Debelo črevo sodeluje pri oblikovanju blata."
+        ]
+      ]
+    ],
+    [
+      "skin",
+      "body",
+      1,
+      "Koža kot zaščitna pregrada",
+      "Koža je pregrada pred zunanjim okoljem, sodeluje pri uravnavanju temperature in zaznavanju dražljajev. Njena zunanja plast omejuje izgubo vode.",
+      "MedlinePlus",
+      "https://medlineplus.gov/healthtopics.html",
+      [
+        [
+          "Kaj je glavna vloga zunanje plasti kože?",
+          "Omejevanje izgube vode in zaščita",
+          "Črpanje krvi",
+          "Izločanje inzulina",
+          "Rožena plast povrhnjice je pomembna zaščitna pregrada."
+        ],
+        [
+          "Kateri dejavnik lahko poškoduje kožo?",
+          "Prekomerna izpostavljenost UV-sevanju",
+          "Običajna uporaba vode pri umivanju rok",
+          "Dihanje",
+          "UV-sevanje lahko poškoduje DNA in poveča tveganje za kožnega raka."
+        ],
+        [
+          "Kako se telo s potenjem ohlaja?",
+          "Z izhlapevanjem znoja",
+          "S tvorbo žolča",
+          "S povečanjem glukoze",
+          "Izhlapevanje odvzema toploto s površine kože."
+        ]
+      ]
+    ],
+    [
+      "diabetes",
+      "prevention",
+      1,
+      "Razumi sladkorno bolezen",
+      "Sladkorna bolezen vključuje moteno uravnavanje glukoze v krvi. Tip 1 in tip 2 imata različne mehanizme; diagnoza temelji na ustreznih laboratorijskih merilih.",
+      "MedlinePlus",
+      "https://medlineplus.gov/healthtopics.html",
+      [
+        [
+          "Kateri hormon pomaga znižati glukozo v krvi?",
+          "Inzulin",
+          "Melatonin",
+          "Adrenalin",
+          "Inzulin omogoča ustrezen odziv tkiv na glukozo."
+        ],
+        [
+          "Ali sta sladkorna bolezen tipa 1 in tipa 2 enaki?",
+          "Ne",
+          "Da",
+          "Razlikujeta se le po imenu",
+          "Pri tipu 1 je značilno pomanjkanje inzulina, pri tipu 2 pa pogosto inzulinska rezistenca."
+        ],
+        [
+          "Ali je tip 2 vedno posledica osebne izbire?",
+          "Ne",
+          "Da",
+          "Vedno zaradi enega živila",
+          "Na tveganje vplivajo številni biološki, okoljski in vedenjski dejavniki."
+        ]
+      ]
+    ],
+    [
+      "tobacco",
+      "prevention",
+      1,
+      "Tobak in zdravje",
+      "Tobačni dim vsebuje številne škodljive snovi. Kajenje povečuje tveganje za raka, srčno-žilne in pljučne bolezni, nikotin pa povzroča odvisnost.",
+      "WHO – tobak",
+      "https://www.who.int/news-room/fact-sheets/detail/tobacco",
+      [
+        [
+          "Ali pasivno kajenje lahko škoduje zdravju?",
+          "Da",
+          "Ne",
+          "Samo pri kadilcih",
+          "Izpostavljenost tobačnemu dimu lahko škoduje tudi nekadilcem."
+        ],
+        [
+          "Katera snov v tobaku povzroča odvisnost?",
+          "Nikotin",
+          "Kisik",
+          "Voda",
+          "Nikotin ima učinke na živčevje in lahko povzroči odvisnost."
+        ],
+        [
+          "Ali ima opustitev kajenja koristi tudi po dolgih letih kajenja?",
+          "Da",
+          "Ne",
+          "Le pred 20. letom",
+          "Opustitev kajenja je koristna v različnih življenjskih obdobjih."
+        ]
+      ]
+    ],
+    [
+      "sleep",
+      "wellbeing",
+      1,
+      "Zakaj potrebujemo spanje?",
+      "Spanje je povezano z obnovo, spominom, presnovo in čustveno regulacijo. Dnevna svetloba in redni urniki pomagajo usklajevati cirkadiani ritem.",
+      "MedlinePlus",
+      "https://medlineplus.gov/healthtopics.html",
+      [
+        [
+          "Kaj je cirkadiani ritem?",
+          "Približno 24-urni biološki ritem",
+          "Srčna aritmija",
+          "Vrsta prehranske vlaknine",
+          "Notranja biološka ura pomaga uravnavati spanje in druge procese."
+        ],
+        [
+          "Katera navada lahko podpira reden ritem spanja?",
+          "Podoben čas vstajanja",
+          "Vsak dan naključno vstajanje",
+          "Pitje kofeina tik pred spanjem",
+          "Rednost pomaga uskladiti biološko uro."
+        ],
+        [
+          "Ali kronično pomanjkanje spanja lahko vpliva na pozornost?",
+          "Da",
+          "Ne",
+          "Samo pri otrocih",
+          "Nezadosten spanec lahko poslabša pozornost in odzivnost."
+        ]
+      ]
+    ],
+    [
+      "mental",
+      "wellbeing",
+      1,
+      "Duševno zdravje in pomoč",
+      "Duševno zdravje je del celotnega zdravja. Stiske imajo lahko različne vzroke; dolgotrajne ali izrazite težave zaslužijo strokovno obravnavo in podporo.",
+      "MedlinePlus",
+      "https://medlineplus.gov/healthtopics.html",
+      [
+        [
+          "Ali je depresija samo slaba volja?",
+          "Ne",
+          "Da",
+          "Vedno izključno posledica lenobe",
+          "Depresija je zdravstvena motnja, ki lahko vpliva na več področij življenja."
+        ],
+        [
+          "Kako se odzoveš, če bližnji opiše duševno stisko?",
+          "Poslušaš brez obsojanja in ponudiš podporo",
+          "Zasmehuješ ga",
+          "Zahtevaš, da težave skrije",
+          "Podporen pogovor in usmeritev k pomoči sta lahko koristna."
+        ],
+        [
+          "Kaj je primerno pri dolgotrajni stiski, ki ovira vsakdan?",
+          "Poiskati strokovno pomoč",
+          "Vedno čakati brez ukrepanja",
+          "Samovoljno jemati tuja zdravila",
+          "Strokovnjak lahko pomaga pri oceni in izbiri podpore."
+        ]
+      ]
+    ],
+    [
+      "sexual",
+      "wellbeing",
+      1,
+      "Spolno in reproduktivno zdravje",
+      "Spolno zdravje vključuje dobro počutje, varnost, spoštovanje in informirano odločanje. Nekatere spolno prenosljive okužbe potekajo brez simptomov.",
+      "MedlinePlus",
+      "https://medlineplus.gov/healthtopics.html",
+      [
+        [
+          "Ali ima lahko spolno prenosljiva okužba asimptomatski potek?",
+          "Da",
+          "Ne",
+          "Samo pri nosečnosti",
+          "Odsotnost simptomov ne izključuje okužbe."
+        ],
+        [
+          "Kaj zmanjšuje tveganje prenosa številnih spolno prenosljivih okužb?",
+          "Pravilna in dosledna uporaba kondoma",
+          "Umivanje po odnosu kot edina zaščita",
+          "Vitaminski dodatek",
+          "Kondomi zmanjšujejo tveganje, ne zagotavljajo pa popolne zaščite."
+        ],
+        [
+          "Kaj pomeni informirano soglasje pri spolnem odnosu?",
+          "Prostovoljna in svobodna privolitev",
+          "Samodejno soglasje v zvezi",
+          "Soglasje brez možnosti umika",
+          "Privolitev mora biti prostovoljna in jo je mogoče umakniti."
+        ]
+      ]
+    ],
+    [
+      "labs",
+      "decisions",
+      1,
+      "Kako razumeti laboratorijski izvid",
+      "Referenčni interval je okvir za interpretacijo rezultata, ne diagnoza. Izvide je treba razlagati glede na simptome, starost, okoliščine in druge ugotovitve.",
+      "MedlinePlus",
+      "https://medlineplus.gov/healthtopics.html",
+      [
+        [
+          "Ali vrednost zunaj referenčnega intervala vedno pomeni bolezen?",
+          "Ne",
+          "Da",
+          "Vedno nujno stanje",
+          "Odstopanja lahko nastanejo iz različnih razlogov."
+        ],
+        [
+          "Ali normalen laboratorijski izvid izključi vse bolezni?",
+          "Ne",
+          "Da",
+          "Vedno",
+          "Nekatere bolezni z določenim testom niso zaznavne."
+        ],
+        [
+          "Kaj je pomembno pri razlagi izvida?",
+          "Klinični kontekst in druge ugotovitve",
+          "Samo barva oznake",
+          "Primerjava s katerokoli osebo",
+          "Rezultat se interpretira v kontekstu."
+        ]
+      ]
+    ],
+    [
+      "oxygen",
+      "deep",
+      2,
+      "Hemoglobin in prenos kisika",
+      "Hemoglobin v eritrocitih reverzibilno veže kisik. Njegova afiniteta je odvisna od okolja; pri nižjem pH se kisik praviloma lažje odda tkivom.",
+      "MedlinePlus – nadaljnje branje",
+      "https://medlineplus.gov/healthtopics.html",
+      [
+        [
+          "Kateri protein prenaša večino kisika v krvi?",
+          "Hemoglobin",
+          "Albumin",
+          "Fibrinogen",
+          "Hemoglobin je glavni prenašalec kisika v eritrocitih."
+        ],
+        [
+          "Kaj je značilno za Bohrov učinek?",
+          "Nižji pH zmanjšuje afiniteto hemoglobina za kisik",
+          "Nižji pH vedno povečuje afiniteto",
+          "pH nima nikakršnega učinka",
+          "V aktivnih tkivih nižji pH olajša oddajo kisika."
+        ],
+        [
+          "Ali saturacija sama pove celotno količino kisika v krvi?",
+          "Ne",
+          "Da",
+          "Vedno pri anemiji",
+          "Pomembna je tudi koncentracija hemoglobina."
+        ]
+      ]
+    ],
+    [
+      "acidbase",
+      "pro",
+      3,
+      "Kislinsko-bazično ravnovesje",
+      "pH krvi je odvisen od razmerja med bikarbonatom in raztopljenim ogljikovim dioksidom. Pljuča uravnavajo CO₂, ledvice pa sodelujejo pri uravnavanju bikarbonata in kislin.",
+      "MedlinePlus – nadaljnje branje",
+      "https://medlineplus.gov/healthtopics.html",
+      [
+        [
+          "Kaj je primarna sprememba pri respiratorni acidozi?",
+          "Povišan PaCO₂",
+          "Povišan bikarbonat kot primarni vzrok",
+          "Znižan PaCO₂",
+          "Zadrževanje CO₂ znižuje pH."
+        ],
+        [
+          "Kako pljuča kompenzirajo metabolično acidozo?",
+          "S povečano ventilacijo",
+          "Z zmanjšano ventilacijo",
+          "Z neposrednim izločanjem bikarbonata v urin",
+          "Povečana ventilacija znižuje PaCO₂."
+        ],
+        [
+          "Kateri organ pomembno sodeluje pri dolgoročni regulaciji bikarbonata?",
+          "Ledvice",
+          "Vranica",
+          "Koža",
+          "Ledvice reabsorbirajo filtrirani bikarbonat in tvorijo novega."
         ]
       ]
     ]
