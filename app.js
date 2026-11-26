@@ -7,7 +7,23 @@ const art=`<svg class="hero-art" viewBox="0 0 300 270" role="img" aria-label="St
 const $=id=>document.getElementById(id), esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const fresh=()=>({xp:0,complete:{},days:{},memory:{},goal:1,level:1,interest:"all",answered:0,correct:0});
 const key="mediq-v2";let state=fresh(),storageOK=true;
-try{const saved=JSON.parse(localStorage.getItem(key)||"null");if(saved&&typeof saved==="object")state={...fresh(),...saved};}catch{storageOK=false}
+const isRecord=v=>v!==null&&typeof v==="object"&&!Array.isArray(v);
+const nat=v=>Number.isSafeInteger(v)&&v>=0?v:0;
+const isDay=v=>typeof v==="string"&&/^\d{4}-\d{2}-\d{2}$/.test(v);
+function restore(raw){
+ const s=fresh();if(!isRecord(raw))return s;
+ s.goal=[1,2,3].includes(raw.goal)?raw.goal:1;s.level=[1,2,3].includes(raw.level)?raw.level:1;
+ s.interest=groups.some(g=>g[0]===raw.interest)?raw.interest:"all";
+ s.answered=nat(raw.answered);s.correct=Math.min(s.answered,nat(raw.correct));s.xp=nat(raw.xp);
+ for(const l of lessons){
+  const c=isRecord(raw.complete)&&raw.complete[l[0]];
+  if(isRecord(c)&&isDay(c.last))s.complete[l[0]]={best:Math.min(l[7].length,nat(c.best)),last:c.last};
+  l[7].forEach((_,i)=>{const k=l[0]+":"+i,m=isRecord(raw.memory)&&raw.memory[k];if(isRecord(m)&&isDay(m.due))s.memory[k]={stage:Math.min(4,nat(m.stage)),due:m.due,everCorrect:m.everCorrect===true};});
+ }
+ if(isRecord(raw.days))for(const [d,n] of Object.entries(raw.days))if(isDay(d)&&nat(n)>0)s.days[d]=n;
+ return s;
+}
+try{const raw=localStorage.getItem(key);if(raw)state=restore(JSON.parse(raw));}catch{storageOK=false}
 const dateKey=(d=new Date())=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
 const relative=(n)=>{let d=new Date();d.setDate(d.getDate()+n);return dateKey(d)};
 const today=()=>dateKey();
@@ -42,7 +58,7 @@ function shuffle(a){let r=[...a];for(let i=r.length-1;i>0;i--){let j=Math.floor(
 function item(k){let [id,i]=k.split(":"),l=lesson(id),q=l[7][+i];return {key:k,question:q[0],options:shuffle(q.slice(1,4).map((t,i)=>({t,correct:i===0}))),explain:q[4],topic:l[3],source:l[5],url:l[6]}}
 function begin(id){let l=lesson(id);if(!l)return;session={title:l[3],id,items:l[7].map((_,i)=>item(id+":"+i)),stage:"intro",i:0,score:0,xp:0,selected:null,checked:false};render(true)}
 function practice(keys,title){if(!keys.length)return;session={title,id:null,items:keys.map(item),stage:"quiz",i:0,score:0,xp:0,selected:null,checked:false};render(true)}
-function daily(){let pool=lessons.filter(l=>l[2]===state.level).flatMap(l=>l[7].map((_,i)=>l[0]+":"+i));practice(shuffle(pool).slice(0,3),"Dnevni izziv")}
+function daily(){let pool=lessons.filter(l=>l[2]===state.level).flatMap(l=>l[7].map((_,i)=>l[0]+":"+i));const hash=k=>Array.from(today()+":"+k).reduce((h,c)=>Math.imul(h^c.charCodeAt(0),16777619)>>>0,2166136261);pool.sort((a,b)=>hash(a)-hash(b)||a.localeCompare(b));practice(pool.slice(0,3),"Dnevni izziv")}
 function drawSession(){let z=session;if(z.stage==="intro"){let l=lesson(z.id),g=group(l[1]);return `<div class="lesson">${btn("← Nazaj","close","","secondary")}<div class="card"><span class="glyph ${g[3]}">${icon(g[2])}</span><div style="margin-top:15px">${tag(l[2])}</div><h1>${l[3]}</h1><p class="intro">${l[4]}</p><p class="small">Nadaljnje branje: <a href="${l[6]}" target="_blank" rel="noopener">${l[5]} ↗</a></p><div class="bottom">${btn("Preveri znanje "+icon("arrow"),"quiz")}</div></div></div>`}if(z.stage==="result"){return `<div class="lesson card result"><span class="glyph">${icon("award")}</span><h1>${z.score>=Math.ceil(z.items.length*2/3)?"Odlično opravljeno!":"Vsak poskus šteje."}</h1><p>${z.id?(finished(lesson(z.id))?"Lekcija je opravljena.":"Za opravljeno lekcijo potrebuješ vsaj dva pravilna odgovora."):"Ponavljanje je zaključeno."}</p><div class="wrap"><span class="stat">${z.score}/${z.items.length} pravilno</span><span class="stat">${icon("bolt")} +${z.xp} XP</span></div><p>${z.items.length-z.score?"Napačni odgovori so dodani v ponavljanje.":"Znanje se bo ponovno pojavilo pri ponavljanju."}</p><div class="wrap">${btn("Nadaljuj","finish")}${z.id?btn("Ponovi lekcijo","start",z.id,"secondary"):""}</div></div>`}
 let q=z.items[z.i];return `<section class="lesson"><div class="between">${btn("× Zapri","close","","secondary")}<span class="small">${esc(z.title)} · ${z.i+1}/${z.items.length}</span></div>${progress(percent(z.i+(z.checked?1:0),z.items.length))}<div class="eyebrow">Izberi en pravilen odgovor</div><h1>${esc(q.question)}</h1><div role="group" aria-label="Možni odgovori">${q.options.map((o,i)=>`<button data-action="select" data-id="${i}" aria-pressed="${z.selected===i}" class="option ${z.checked?(o.correct?"correct":z.selected===i?"wrong":""):z.selected===i?"selected":""}" ${z.checked?"disabled":""}><span class="letter">${String.fromCharCode(65+i)}</span>${esc(o.t)} ${z.checked&&o.correct?icon("check"):""}</button>`).join("")}</div>${z.checked?`<div class="feedback ${q.options[z.selected].correct?"":"wrong"}" role="status"><strong>${q.options[z.selected].correct?"Pravilno!":"Ni čisto tako — poglej razlago."}</strong><p>${esc(q.explain)}</p><small><a href="${q.url}" target="_blank" rel="noopener">${esc(q.source)} ↗</a></small></div>`:""}<div class="bottom">${z.checked?btn(z.i===z.items.length-1?"Zaključi":"Nadaljuj "+icon("arrow"),"next"):`<button class="primary" data-action="check" ${z.selected===null?"disabled":""}>Preveri odgovor</button>`}</div></section>`}
 function check(){let z=session;if(!z||z.checked||z.selected===null)return;let q=z.items[z.i],correct=q.options[z.selected].correct,prev=state.memory[q.key],interval=correct?Math.min(4,(prev?.stage||0)+1):0;let days=[0,1,3,7,14][interval];state.memory[q.key]={stage:interval,due:relative(days),everCorrect:!!(prev?.everCorrect||correct)};state.answered++;if(correct){state.correct++;z.score++;let xp=prev?.everCorrect?0:10;state.xp+=xp;z.xp+=xp}z.checked=true;save();render()}
